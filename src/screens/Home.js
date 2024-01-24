@@ -4,7 +4,10 @@ import {ScrollView,TextInput} from 'react-native-gesture-handler';
 import Icon from '@expo/vector-icons/Entypo';
 import Posts from '../screens/Posts'
 import { LinearGradient } from 'expo-linear-gradient';
+<<<<<<< HEAD
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+=======
+>>>>>>> 694026e72310bd4ab537d71636c5cf6430ea1608
 
 export default class Home extends React.Component{
     state={
