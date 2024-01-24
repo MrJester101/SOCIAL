@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Text,Image,ImagBackground,Divider, ImageBackground} from 'react-native';
+import {View,Text,Image,ImagBackground,Divider, ImageBackground,StyleSheet} from 'react-native';
 import Icon from "@expo/vector-icons/Entypo"
 import {TouchableOpacity} from 'react-native-gesture-handler';
 // import { Icon } from '@gluestack-ui/themed';
@@ -16,6 +16,24 @@ export default class Posts extends React.Component{
         this.setState({liked:!this.state.liked})
     }
     render(){
+        const style=StyleSheet.create({
+            options:{
+                paddingVertical:6,
+                height:40,
+                borderRadius:15,
+                borderColor:"#044244",
+                margin:5,
+            
+               flex:1,
+               borderBottomWidth:8,
+               borderEndWidth:5,
+               borderStartWidth:5,
+            //    borderTopWidth:1
+            }
+
+
+
+        })
 
         const {name,question,profile,photo,time,onPress,option1,option2,option3,option4} = this.props
 
@@ -164,250 +182,108 @@ export default class Posts extends React.Component{
                )
                 }
 
+                <View style={{
+                    backgroundColor:"#fff"
 
-               { (option1 || option2 || option3 || option4) && (
-                 <View style={{backgroundColor:"#fff",paddingTop:10}}>
+                }}> 
+                    
+                    { (option1 || option2 || option3 || option4) && (
+                 <View style={{
+                    backgroundColor:"#ffff",
+                    padding:10,
+                    margin:20,
+                    borderWidth:5,
+                    borderRadius:15,
+                    borderColor:"#EAEAEA"
+                    
+                    }}> 
+
+                    <Text
+                    style={{
+                        fontSize:12,
+                        color:"#151516",
+                        alignSelf:"flex-end",
+                        fontFamily:"Regular"
+                    }}>
+                        22.5k Interactions
+                    </Text>
+                 
+                 {option1 && (
+                    <TouchableOpacity
+                    onPress={this.onTabPressed}
+                    style={style.options}
+                  >
+                      <Text style={{
+                          fontFamily:"Medium",
+                          alignSelf:"flex-start",
+                          justifyContent:"center",
+                          color:"#000000",
+                          paddingHorizontal:10
+                      }}>{option1}</Text>
+                      
+                  </TouchableOpacity>
+              )}
+              {option2 && (
+                    <TouchableOpacity
+                    onPress={this.onTabPressed}
+                    style={style.options}
+                  >
+                      <Text style={{
+                          fontFamily:"Medium",
+                          alignSelf:"flex-start",
+                          justifyContent:"center",
+                          color:"#000000",
+                          paddingHorizontal:10
+                      }}>{option2}</Text>
+                      
+                  </TouchableOpacity>
+              )}
+              {option3 && (
+                    <TouchableOpacity
+                    onPress={this.onTabPressed}
+                    style={style.options}
+                  >
+                      <Text style={{
+                          fontFamily:"Medium",
+                          alignSelf:"flex-start",
+                          justifyContent:"center",
+                          color:"#000000",
+                          paddingHorizontal:10
+                      }}>{option3}</Text>
+                      
+                  </TouchableOpacity>
+              )}
+              {option4 && (
+                    <TouchableOpacity
+                    onPress={this.onTabPressed}
+                    style={style.options}
+                  >
+                      <Text style={{
+                          fontFamily:"Medium",
+                          alignSelf:"flex-start",
+                          justifyContent:"center",
+                          color:"#000000",
+                          paddingHorizontal:10
+                      }}>{option4}</Text>
+                      
+                  </TouchableOpacity>
+              )}
+
+              
 
                 
-                 <View style={{
-                       flexDirection:"column",
-                       backgroundColor:"#fff",
-                       paddingHorizontal:15,
-                       paddingVertical:10,
-                       borderWidth:8,
-                       marginHorizontal:15,
-                       borderColor:"#EAEAEA"
-                     
-                     //   marginHorizontal:15,
-                       
-                   }}>
-                    <Text style={{
-                        fontFamily:"Medium",
-                        fontSize:12,
-                        color:"#000",
-                        alignSelf:'flex-end'
-
-                    }}>
-                        23.3k Interactions
-                    </Text>
- 
-                     {option1 &&(
-                     <View 
-                     style={{
-                        width:"100%",
-                        backgroundColor:"#00000",
-                        marginBottom:10
-                        }}>
-
-<TouchableOpacity
-     onPress={this.onTabPressed}
-     style={{
-         paddingVertical:6,
-         height:40,
-         borderRadius:15,
-         borderWidth:3,
-         borderColor:"#5555",
-        flex:1
-     }}
-   >
-       <Text style={{
-           fontFamily:"Medium",
-           alignSelf:"flex-start",
-           justifyContent:"center",
-           color:"#000000",
-           paddingHorizontal:10
-       }}>{option1}</Text>
-       
-   </TouchableOpacity>
-   <View style={{
-         backgroundColor:'#000000',
-         height:7,
-         marginHorizontal:9,
-         marginVertical:-2
-       }}>
- 
-       </View>
-
-                            
- 
- 
- 
- 
- </View>
- 
- 
- 
- 
-                     )}
- 
- 
-                     {option2 &&(
-                          <View 
-                          style={{
-                      
-                              width:"100%",
-                              backgroundColor:"#00000",
-                              marginBottom:10
-                              
-                            
-                            
-                              }}>
-      
-                            <TouchableOpacity
-                              onPress={this.onTabPressed}
-                              style={{
-                              //    backgroundColor:"#EAEAEA",
-                                  paddingVertical:6,
-                                  height:40,
-                                  // borderTopLeftRadius:20,
-                                  // borderTopRightRadius:20,
-                                  borderRadius:15,
-                                  borderWidth:3,
-                                  borderColor:"#5555",
-                                 flex:1
-                              }}
-                            >
-                                <Text style={{
-                                    fontFamily:"Medium",
-                                    alignSelf:"flex-start",
-                                    justifyContent:"center",
-                                    color:"#000000",
-                                    paddingHorizontal:10
-                                }}>{option2}</Text>
-                                
-                            </TouchableOpacity>
-                            <View style={{
-                                  backgroundColor:'#000000',
-                                  height:7,
-                                  marginHorizontal:9,
-                                  marginVertical:-2
-                                }}>
-      
-                                </View>
-      
-      
-                          </View>
- 
-                     )}
- 
- 
-                     {option3 &&(
-                          <View 
-                          style={{
-                      
-                              width:"100%",
-                              backgroundColor:"#00000",
-                              marginBottom:10
-                              
-                            
-                            
-                              }}>
-      
-                            <TouchableOpacity
-                              onPress={this.onTabPressed}
-                              style={{
-                                  paddingVertical:6,
-                                  height:40,
-                                  borderRadius:15,
-                                  borderWidth:3,
-                                  borderColor:"#5555",
-                                 flex:1
-                              }}
-                            >
-                                <Text style={{
-                                    fontFamily:"Medium",
-                                    alignSelf:"flex-start",
-                                    justifyContent:"center",
-                                    color:"#000000",
-                                    paddingHorizontal:10
-                                }}>{option3}</Text>
-                                
-                            </TouchableOpacity>
-                            <View style={{
-                                  backgroundColor:'#000000',
-                                  height:7,
-                                  marginHorizontal:9,
-                                  marginVertical:-2
-                                }}>
-      
-                                </View>
-      
-      
-                          </View>
- 
-                     )}
- 
- 
-                     {option4 && (
-                          <View 
-                          style={{
-                      
-                              width:"100%",
-                              backgroundColor:"#00000",
-                              marginBottom:10
-                              
-                            
-                            
-                              }}>
-      
-                            <TouchableOpacity
-                              onPress={this.onTabPressed}
-                              style={{
-                                  paddingVertical:6,
-                                  height:40,
-                                  borderRadius:15,
-                                  borderWidth:3,
-                                  borderColor:"#5555",
-                                 flex:1
-                              }}
-                            >
-                                <Text style={{
-                                    fontFamily:"Medium",
-                                    alignSelf:"flex-start",
-                                    justifyContent:"center",
-                                    color:"#000000",
-                                    paddingHorizontal:10
-                                }}>{option4}</Text>
-                                
-                            </TouchableOpacity>
-                            <View style={{
-                                  backgroundColor:'#000000',
-                                  height:7,
-                                  marginHorizontal:9,
-                                  marginVertical:-2
-                                }}>
-      
-                                </View>
-      
-      
-                          </View>
- 
-                     )}
- 
- 
-                    
-             
- 
-                  
- 
-                     
- 
-                   
-                     
- 
- 
- 
- 
-                     
- 
- 
-                    
-                   </View> 
+                
  
  
                  </View>
                )}
 
+
+
+                </View>
+
+
+              
 
              
 
@@ -578,5 +454,6 @@ export default class Posts extends React.Component{
 
             </View>
         )
+     
     }
 }

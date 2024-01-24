@@ -199,7 +199,7 @@ export default class Detail extends React.Component{
 
 
                 <Posts
-                        onPress={()=>this.props.navigation.navigate('Detail')}
+                        onPress={()=>this.props.navigation.navigate('AddPost')}
                         name="TheUncomplicated"
                         time="08 mins ago"
                         question="What's your view on the following Ram Mandir inauguration ?"

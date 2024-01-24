@@ -15,8 +15,8 @@ export default class Home extends React.Component{
     render(){
         return(
             <LinearGradient
-            // colors={['#4B39EF', '#FF5963', '#EE8B60']}
-            colors={['#00000', '#00000', '#00000']}
+            colors={['#4B39EF', '#FF5963', '#EE8B60']}
+            // colors={['#00000', '#00000', '#00000']}
             start={[0, 0]}
             end={[1, 0]}
             style={{
@@ -123,10 +123,24 @@ export default class Home extends React.Component{
                             paddingVertical:6
                         }}
                       >
-                          <Text style={{
-                              fontFamily:"Bold",
-                              color:this.state.popularSelected ? "#044244":"#9ca1a2"
-                          }}>FOR YOU</Text>
+                        
+
+                       <Image  source={require('../images/trending.png')}
+                       style={{
+                        height:30,
+                        width:30,
+
+                       }}>
+
+                       </Image>
+                       <Text style={{
+                        color:"#00000",
+                        fontSize:10,
+
+                       }}>
+                        Trending
+                       </Text>
+
                       </TouchableOpacity>
 
 
@@ -139,10 +153,22 @@ export default class Home extends React.Component{
                             marginLeft:30
                         }}
                       >
-                          <Text style={{
-                              fontFamily:"Bold",
-                              color:this.state.popularSelected ? "#9ca1a2":"#044244"
-                          }}>TRENDING</Text>
+                         <Image  source={require('../images/film.png')}
+                       style={{
+                        height:30,
+                        width:30,
+
+                       }}>
+
+                       </Image>
+                       <Text style={{
+                        color:"#00000",
+                        fontSize:10,
+
+                       }}>
+                        Cinema
+                       </Text>
+                          
                       </TouchableOpacity>
                   </View>
 
@@ -158,7 +184,6 @@ export default class Home extends React.Component{
             }}
           >
 
-
                        <Posts
                         onPress={()=>this.props.navigation.navigate('Detail')}
                         name="TheUncomplicated"
@@ -170,6 +195,7 @@ export default class Home extends React.Component{
                         option2="Waste of Money"
                         option3="Political Agenda"
                         option4="Cultural Restoration"
+                        // props=postData
                       />
 
 
