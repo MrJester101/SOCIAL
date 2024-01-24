@@ -1,18 +1,19 @@
 import React ,{ useState }from 'react';
 import {View,Text,Image,ImageBackground,TouchableOpacity,StyleSheet} from 'react-native';
 import {ScrollView,TextInput} from 'react-native-gesture-handler';
+
 import Icon from '@expo/vector-icons/Entypo';
 import Posts from '../screens/Posts'
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default class AddPosts extends React.Component{
-  const [question, setQuestion] = useState('');
-  const [options, setOptions] = useState(['Option 1', 'Option 2']);
+  // const [question, setQuestion] = useState('');
+  // const [opt, setOptions] = useState(0);
 
-  const addOption = () => {
-    const newOptions = [...options, `Option ${options.length + 1}`];
-    setOptions(newOptions);
-  };
+  // const addOption = () => {
+  //   const newOptions = [...opt, `Option ${opt.length + 1}`];
+  //   setOptions(newOptions);
+  // };
 
 
 

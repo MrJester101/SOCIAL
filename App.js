@@ -6,6 +6,20 @@ import { StyleSheet, Text, View } from 'react-native';
 import * as Font from 'expo-font';
 import AppNavigator from './src/navigations/Navigator';
 import AppLoading from 'expo-app-loading';
+import Tabs from './src/navigations/Tab';
+import { NavigationContainer } from '@react-navigation/native';
+
+
+const App2=()=> {
+  return(
+    <NavigationContainer>
+    <Tabs/>
+  </NavigationContainer>
+  );
+
+}
+
+// export default App2;
 
 
 
@@ -25,8 +39,17 @@ export default class App extends React.Component{
   }
   render(){
     return (
+      <NavigationContainer>
+      <Tabs/>
+    </NavigationContainer>,
+
+     
     (this.state.isFontLoaded === true)?(<AppNavigator/>) : (<AppLoading/>)
       );
+
+    //   <NavigationContainer>
+    //   <Tabs/>
+    // </NavigationContainer>
   }
   
 }
