@@ -1,7 +1,11 @@
 import React from 'react';
-import {View,Text,Image,ImagBackground, ImageBackground} from 'react-native';
+import {View,Text,Image,ImagBackground,Divider, ImageBackground} from 'react-native';
 import Icon from "@expo/vector-icons/Entypo"
 import {TouchableOpacity} from 'react-native-gesture-handler';
+// import { Icon } from '@gluestack-ui/themed';
+// 
+
+
 
 
 export default class Posts extends React.Component{
@@ -13,22 +17,25 @@ export default class Posts extends React.Component{
     }
     render(){
 
-        const {name,question,profile,photo,time,onPress} = this.props
+        const {name,question,profile,photo,time,onPress,option1,option2,option3,option4} = this.props
 
         return(
-            <View>
-
+            <View style={{flex:1}}>
+               
 
              <View style={{
                    flexDirection:"row",
                    width:"100%",
-                   paddingTop:20
+                   paddingHorizontal:15,
+            
+                   backgroundColor:"#fff"
                }}>
 
               <View style={{
                         // width:"90%",
                         flex:1,
-                        alignItems:"flex-start"
+                        alignItems:"flex-start",
+                        backgroundColor:"#fff"
                     }}>
                          <Text style={{
                            fontFamily:"Bold",
@@ -63,6 +70,8 @@ export default class Posts extends React.Component{
                <View style={{
                    flexDirection:"row",
                    paddingTop:5,
+                   paddingHorizontal:15,
+                   backgroundColor:"#fff",
                    alignItems:"top"         
                 }}>
                     <View style={{width:"15%"}}>
@@ -106,10 +115,10 @@ export default class Posts extends React.Component{
                                 onPress={this.onLike}
                                 style={{
                                     marginBottom:20,
-                                    borderRadius:5,
+                                    borderRadius:8,
                                     padding:5,
                                     marginLeft:10,
-                                    backgroundColor:"#e8e8e8",
+                                    backgroundColor:"#eaeaea",
                                   
                                 
                                 }}
@@ -121,7 +130,7 @@ export default class Posts extends React.Component{
                             fontSize:12,
                             paddingHorizontal:1,
                             alignSelf:"center",
-                            color:"#044244"
+                            color:"#044244" 
                                }}>
                             Follow
                         </Text>
@@ -131,17 +140,19 @@ export default class Posts extends React.Component{
 
                </View>
 
-
-               <View style={{
+               {photo &&(  <View style={{
                    flexDirection:"row",
                    width:"100%",
-                   paddingTop:20
+                   paddingTop:20,
+                   paddingHorizontal:15,
+                   backgroundColor:"#fff"
                }}>
                     <ImageBackground 
                     source={photo}
                     style={{
                         width:"100%",
                         height:220,
+                        maxHeight:220
                     }}
                     imageStyle={{
                         borderRadius:30
@@ -150,13 +161,270 @@ export default class Posts extends React.Component{
                     
                     </ImageBackground>
                </View>
+               )
+                }
+
+
+               { (option1 || option2 || option3 || option4) && (
+                 <View style={{backgroundColor:"#fff",paddingTop:10}}>
+
+                
+                 <View style={{
+                       flexDirection:"column",
+                       backgroundColor:"#fff",
+                       paddingHorizontal:15,
+                       paddingVertical:10,
+                       borderWidth:8,
+                       marginHorizontal:15,
+                       borderColor:"#EAEAEA"
+                     
+                     //   marginHorizontal:15,
+                       
+                   }}>
+                    <Text style={{
+                        fontFamily:"Medium",
+                        fontSize:12,
+                        color:"#000",
+                        alignSelf:'flex-end'
+
+                    }}>
+                        23.3k Interactions
+                    </Text>
+ 
+                     {option1 &&(
+                     <View 
+                     style={{
+                        width:"100%",
+                        backgroundColor:"#00000",
+                        marginBottom:10
+                        }}>
+
+<TouchableOpacity
+     onPress={this.onTabPressed}
+     style={{
+         paddingVertical:6,
+         height:40,
+         borderRadius:15,
+         borderWidth:3,
+         borderColor:"#5555",
+        flex:1
+     }}
+   >
+       <Text style={{
+           fontFamily:"Medium",
+           alignSelf:"flex-start",
+           justifyContent:"center",
+           color:"#000000",
+           paddingHorizontal:10
+       }}>{option1}</Text>
+       
+   </TouchableOpacity>
+   <View style={{
+         backgroundColor:'#000000',
+         height:7,
+         marginHorizontal:9,
+         marginVertical:-2
+       }}>
+ 
+       </View>
+
+                            
+ 
+ 
+ 
+ 
+ </View>
+ 
+ 
+ 
+ 
+                     )}
+ 
+ 
+                     {option2 &&(
+                          <View 
+                          style={{
+                      
+                              width:"100%",
+                              backgroundColor:"#00000",
+                              marginBottom:10
+                              
+                            
+                            
+                              }}>
+      
+                            <TouchableOpacity
+                              onPress={this.onTabPressed}
+                              style={{
+                              //    backgroundColor:"#EAEAEA",
+                                  paddingVertical:6,
+                                  height:40,
+                                  // borderTopLeftRadius:20,
+                                  // borderTopRightRadius:20,
+                                  borderRadius:15,
+                                  borderWidth:3,
+                                  borderColor:"#5555",
+                                 flex:1
+                              }}
+                            >
+                                <Text style={{
+                                    fontFamily:"Medium",
+                                    alignSelf:"flex-start",
+                                    justifyContent:"center",
+                                    color:"#000000",
+                                    paddingHorizontal:10
+                                }}>{option2}</Text>
+                                
+                            </TouchableOpacity>
+                            <View style={{
+                                  backgroundColor:'#000000',
+                                  height:7,
+                                  marginHorizontal:9,
+                                  marginVertical:-2
+                                }}>
+      
+                                </View>
+      
+      
+                          </View>
+ 
+                     )}
+ 
+ 
+                     {option3 &&(
+                          <View 
+                          style={{
+                      
+                              width:"100%",
+                              backgroundColor:"#00000",
+                              marginBottom:10
+                              
+                            
+                            
+                              }}>
+      
+                            <TouchableOpacity
+                              onPress={this.onTabPressed}
+                              style={{
+                                  paddingVertical:6,
+                                  height:40,
+                                  borderRadius:15,
+                                  borderWidth:3,
+                                  borderColor:"#5555",
+                                 flex:1
+                              }}
+                            >
+                                <Text style={{
+                                    fontFamily:"Medium",
+                                    alignSelf:"flex-start",
+                                    justifyContent:"center",
+                                    color:"#000000",
+                                    paddingHorizontal:10
+                                }}>{option3}</Text>
+                                
+                            </TouchableOpacity>
+                            <View style={{
+                                  backgroundColor:'#000000',
+                                  height:7,
+                                  marginHorizontal:9,
+                                  marginVertical:-2
+                                }}>
+      
+                                </View>
+      
+      
+                          </View>
+ 
+                     )}
+ 
+ 
+                     {option4 && (
+                          <View 
+                          style={{
+                      
+                              width:"100%",
+                              backgroundColor:"#00000",
+                              marginBottom:10
+                              
+                            
+                            
+                              }}>
+      
+                            <TouchableOpacity
+                              onPress={this.onTabPressed}
+                              style={{
+                                  paddingVertical:6,
+                                  height:40,
+                                  borderRadius:15,
+                                  borderWidth:3,
+                                  borderColor:"#5555",
+                                 flex:1
+                              }}
+                            >
+                                <Text style={{
+                                    fontFamily:"Medium",
+                                    alignSelf:"flex-start",
+                                    justifyContent:"center",
+                                    color:"#000000",
+                                    paddingHorizontal:10
+                                }}>{option4}</Text>
+                                
+                            </TouchableOpacity>
+                            <View style={{
+                                  backgroundColor:'#000000',
+                                  height:7,
+                                  marginHorizontal:9,
+                                  marginVertical:-2
+                                }}>
+      
+                                </View>
+      
+      
+                          </View>
+ 
+                     )}
+ 
+ 
+                    
+             
+ 
+                  
+ 
+                     
+ 
+                   
+                     
+ 
+ 
+ 
+ 
+                     
+ 
+ 
+                    
+                   </View> 
+ 
+ 
+                 </View>
+               )}
+
+
+             
+
+
+
+              
+              
+               
 
 
                <View style={{
                             flex:1,
                             flexDirection:"row",
                             alignItems:"flex-start",
-                            marginTop:10,
+                            paddingTop:10,
+                            paddingHorizontal:15,
+                            backgroundColor:"#fff",
                             justifyContent:"flex-start"
                         }}>
 
@@ -231,19 +499,75 @@ export default class Posts extends React.Component{
                             </TouchableOpacity>
 
 
+
+                            <View style={{
+                            flex:1,
+                            flexDirection:"row",
+                            alignItems:"flex-end",
+                            // marginTop:10,
+                            justifyContent:"flex-end"
+                        }}>
+                             <TouchableOpacity
+                                onPress={onPress}
+                                style={{
+                                   
+                                    borderRadius:5,
+                                    flexDirection:"column",
+                                    padding:5,
+                                    // backgroundColor:"#e8e8e8",
+                                  
+                           
+                                }}
+                            >
+                                <Icon name="bookmark"
+                                color="#044244"
+                                size={24}/>
+
+                                
+
+                            
+
+                                
+                            </TouchableOpacity>
+
+
                         </View>
 
 
+                            
 
-                        <Text style={{
+
+                        </View>
+
+
+                <View style={{backgroundColor:"#fff", paddingHorizontal:15,marginBottom:7}}>
+
+                <Text style={{
                             fontFamily:"Medium",
                             fontSize:14,
+                            backgroundColor:"#fff",
                             marginLeft:5,
+                            marginBottom:4,
+                            
+                            flex:1,
                             alignSelf:"flex-start",
                             color:"#000"
                                }}>
                             12,367 Likes
                         </Text>
+
+
+
+                </View>
+
+
+
+                      
+
+
+                       
+
+                       
 
 
                

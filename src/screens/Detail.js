@@ -1,6 +1,7 @@
 import React from 'react';
-import {Text,View,ImageBackground,Image,TouchableOpacity} from 'react-native';
+import {Text,View,ImageBackground,ScrollView,Image,TouchableOpacity} from 'react-native';
 import Icon from "@expo/vector-icons/Entypo"
+import Posts from '../screens/Posts'
 
 export default class Detail extends React.Component{
     state={
@@ -13,15 +14,29 @@ export default class Detail extends React.Component{
     render(){
         return(
             <View style={{
-                backgroundColor:"#044244",
+                backgroundColor:"#EAEAEA",
                 height:"100%",
             }}>
-                <View style={{
+              
+
+
+                <ScrollView
+            showsVerticalScrollIndicator={false}
+            style={{
+               flex:1,
+            //   paddingHorizontal:15,
+               backgroundColor:"#EAEAEA",
+               borderTopLeftRadius:50,
+               borderTopRightRadius:50
+               
+            }}
+          >
+
+                   <View style={{
                     paddingHorizontal:40,
                     backgroundColor:"#FFF",
-                    height:"50%",
-                    borderBottomLeftRadius:50,
-                    borderBottomRightRadius:50
+                    
+                   
                 }}>
                     <View style={{
                         flexDirection:"row",
@@ -41,26 +56,35 @@ export default class Detail extends React.Component{
                                 color="#044244"
                             />
                         </TouchableOpacity>
-                        <View style={{
+
+
+
+                        <TouchableOpacity
+                          onPress={()=>this.props.navigation.goBack()}
+                         style={{
                             width:"50%",
                             alignItems:"flex-end"
                         }}>
                             <Icon
-                                name="dots-two-vertical"
+                                name="dots-three-vertical"
                                 size={24}
                                 color="#044244"
                             />
-                        </View>
+                        </TouchableOpacity>
                     </View>
+
+
 
                     <Image
                         source={require('../images/p2.jpg')}
                         style={{
                             height:100,
                             width:100,
-                            borderRadius:20,
+                            borderRadius:50,
+                            borderWidth:5,
+                            borderColor:"#044244",
                             alignSelf:"center",
-                            marginVertical:20
+                            marginVertical:5
                         }}
                     />
                     <Text style={{
@@ -69,7 +93,7 @@ export default class Detail extends React.Component{
                         color:"#044244",
                         alignSelf:"center"
                     }}>
-                        Ksenia Bator
+                        Mr.Jester
                     </Text>
                     <Text style={{
                         fontFamily:"Medium",
@@ -77,7 +101,7 @@ export default class Detail extends React.Component{
                         color:"#9ca1a2",
                         alignSelf:"center"
                     }}>
-                        Kiev, Ukraine
+                        The best things come from living outside of your comfort zone
                     </Text>
 
                     
@@ -99,7 +123,7 @@ export default class Detail extends React.Component{
                                     color:"#9ca1a2",
                                     alignSelf:"center"
                                 }}>
-                                    photos
+                                    posts
                                 </Text>
                         </View>
 
@@ -137,120 +161,126 @@ export default class Detail extends React.Component{
                                     follows
                                 </Text>
                         </View>
+
+
                     </View>
-                </View>
 
-
-                <View style={{
-                    flexDirection:"row",
-                    paddingHorizontal:40,
-                    paddingTop:20
-                }}>
-                    <TouchableOpacity
-                        onPress={this.onTabPressed}
-                        style={{
-                            borderBottomColor: this.state.collectionSelected ? "#FFF":"#044244",
-                            borderBottomWidth:4,
-                            paddingVertical:6,
-                        }}
-                    >
-                        <Text style={{
-                            fontFamily:"Bold",
-                            color:this.state.collectionSelected ? "#FFF":"#9ca1a2"
-                        }}>COLLECTIONS</Text>
-                    </TouchableOpacity>
 
                     <TouchableOpacity
                         onPress={this.onTabPressed}
                         style={{
-                            borderBottomColor: this.state.collectionSelected ? "#044244":"#FFF",
-                            borderBottomWidth:4,
-                            paddingVertical:6,
-                            marginLeft:30
-                        }}
-                    >
-                        <Text style={{
-                            fontFamily:"Bold",
-                            color:this.state.collectionSelected ? "#9ca1a2":"#FFF"
-                        }}>FEATURED</Text>
-                    </TouchableOpacity>
-                </View>
-
-
-                <View style={{flexDirection:"row"}}>
-                    <View style={{
-                        backgroundColor:"#728c8e",
-                        height:260,
-                        width:280,
-                        marginHorizontal:40,
-                        borderRadius:30,
-                        marginTop:30
-                    }}>
-                        <ImageBackground
-                            source={require('../images/7.jpg')}
-                            style={{
-                                width:280,
-                                height:180
-                            }}
-                            imageStyle={{
-                                borderRadius:30
-                            }}
-                        >
-                            <View style={{
-                                width:"100%",
-                                alignItems:"flex-end"
-                            }}>
-                                    <TouchableOpacity style={{
-                                        width:40,
-                                        alignItems:"center",
-                                        justifyContent:"center",
-                                        marginTop:25,
-                                        borderRadius:10,
-                                        padding:8,
-                                        marginRight:20,
-                                        backgroundColor:"#6f8d90"
-                                    }}>
-                                            <Icon
-                                                name="edit"
-                                                size={20}
-                                                color="#FFF"
-                                            />
-                                    </TouchableOpacity>
-                            </View>
-                        </ImageBackground>
-                        
-                        <View style={{
-                            paddingVertical:20,
-                            paddingHorizontal:30
-                        }}>
-                            <Text style={{
-                                fontFamily:"Bold",
-                                color:"#FFF",
-                                fontSize:15
-                            }}>Nature Collections</Text>
-                            <Text style={{
-                                fontFamily:"Medium",
-                                color:"#dedede",
-                                fontSize:12
-                            }}>
-                                1,003 photos
-                            </Text>
-                        </View>
-                    </View>
-                        
+                           width:"100%",
+                           backgroundColor:"#222",
+                           backgroundColor:"#044244",
+                           borderRadius:20,
+                           borderBottomRightRadius:20,
                     
-                    <View style={{
-                        height:180,
-                        backgroundColor:"#FFF",
-                        width:20,
-                        marginLeft:-20,
-                        marginTop:70,
-                        borderTopLeftRadius:20,
-                        borderBottomLeftRadius:20
-                    }}>
+                           margin:15,
+                           alignSelf:"center"
+                        }}
+                    >
 
-                    </View>
+
+                        <Text style={{
+                            fontFamily:"Bold",
+                            
+                            alignSelf:"center",
+                            color:"#fff",
+                            fontSize:20,
+                            padding:10,
+                            justifyContent:'center'
+                        }}>FOLLOW</Text>
+                    </TouchableOpacity>
+
+
+
                 </View>
+
+
+
+                <Posts
+                        onPress={()=>this.props.navigation.navigate('Detail')}
+                        name="TheUncomplicated"
+                        time="08 mins ago"
+                        question="What's your view on the following Ram Mandir inauguration ?"
+                        profile={require('../images/p1.jpg')}
+                        photo={require('../images/RamMandir.png')}
+                        option1="Oportunity to capitalize"
+                        option2="Waste of Money"
+                        option3="Political Agenda"
+                        option4="Cultural Restoration"
+                      />
+
+
+
+                   
+                      <Posts
+                        onPress={()=>this.props.navigation.navigate('Detail')}
+                        name="@LoneWol080"
+                        time="45 min ago"
+                        question="Politics and religion should not be mixed together? What is your saying?"
+                        profile={require('../images/p1.jpg')}
+                        option1="Yes"
+                        option2="No"
+                        option3="LMKIC"
+                     
+                       
+                      />
+
+                    
+
+        
+                      <Posts
+                        onPress={()=>this.props.navigation.navigate('Detail')}
+                        name="Mr.Jester"
+                        time="24 mins ago"
+                        question="Are you afraid of posting pictures due to growth of deepfake technology?"
+                        profile={require('../images/p1.jpg')}
+                        photo={require('../images/deepfake.png')}
+                        option1="Yes"
+                        option2="Not Exactly"
+                        option3="Litle Much"
+                      />
+
+                
+
+                
+
+                      <Posts
+                        onPress={()=>this.props.navigation.navigate('Splash')}
+                        name="CricketGeek"
+                        time="1 h ago"
+                        question="Do you think virat kohli will surpass the legacy of Sachin Tendulkar in next 5 years ?"
+                        profile={require('../images/p2.jpg')}
+                        photo={require('../images/vkst.png')}
+                      />
+
+               
+
+                 
+                      <Posts
+                        onPress={()=>this.props.navigation.navigate('Detail')}
+                        question="Change in criminal laws that increases jail terms in hit-and-run cases to up to 10 years,Do you support these changes ?"
+                        time="3 h ago"
+                        name="User241"
+                        profile={require('../images/p1.jpg')}
+                        photo={require('../images/vkst.png')}
+                      />
+             
+
+              
+
+
+                  </ScrollView>
+
+
+
+                
+
+
+
+
+                
             </View>
         )
     }
