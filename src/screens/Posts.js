@@ -49,18 +49,19 @@ export default class Posts extends React.Component{
                    backgroundColor:"#fff"
                }}>
 
-              <View style={{
+              <TouchableOpacity style={{
                         // width:"90%",
                         flex:1,
                         alignItems:"flex-start",
                         backgroundColor:"#fff"
-                    }}>
+                    }}
+                    onPress={this.onPress}>
                          <Text style={{
                            fontFamily:"Bold",
                            fontSize:20,
                            color:"#044244"
                             }}>{question}</Text>
-                    </View>
+                    </TouchableOpacity>
 
 
 
