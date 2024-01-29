@@ -55,7 +55,7 @@ export default class Posts extends React.Component{
                         alignItems:"flex-start",
                         backgroundColor:"#fff"
                     }}
-                    onPress={this.onPress}>
+                    onPress={onPress}>
                          <Text style={{
                            fontFamily:"Bold",
                            fontSize:20,

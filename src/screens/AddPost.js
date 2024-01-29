@@ -5,6 +5,7 @@ import {ScrollView,TextInput} from 'react-native-gesture-handler';
 import Icon from '@expo/vector-icons/Entypo';
 import Posts from '../screens/Posts'
 import { LinearGradient } from 'expo-linear-gradient';
+import { signUp } from '../../services/user-service';
 
 export default class AddPosts extends React.Component{
   // const [question, setQuestion] = useState('');
@@ -20,6 +21,12 @@ export default class AddPosts extends React.Component{
 
 
 render(){
+
+  const sampleData = {
+    email: "MrJester",
+    name: "suyasht786@gmail.com",
+    authority: "yes",
+  };
     const style=StyleSheet.create({
         options:{
             paddingVertical:6,
@@ -226,7 +233,33 @@ render(){
 
           <TouchableOpacity style={
             style.buttons
-          }>  
+          }
+
+
+          // onPress={signUp(sampleData).then((resp)=>{
+          //   console.log(resp);;
+          //   console.log("success");
+          // }).catch((error)=>{
+          //   console.log(error);
+          //   console.log("Failing");
+          // })}
+
+
+          onPress={() => {
+            signUp(sampleData)
+              .then((resp) => {
+                console.log(resp);
+                console.log("success");
+              })
+              .catch((error) => {
+                console.log(error);
+                console.log("Failing");
+              });
+          }}
+          
+          
+          
+          >  
 
 
 
