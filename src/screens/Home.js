@@ -119,7 +119,7 @@ export default class Home extends React.Component{
                       borderTopRightRadius:20
                   }}>
                       <TouchableOpacity
-                        onPress={this.onTabPressed}
+                           onPress={()=>this.props.navigation.navigate('SocialLogin')}
                         style={{
                             borderBottomColor:this.state.popularSelected ? "#044244":"#FFF",
                             borderBottomWidth:4,
