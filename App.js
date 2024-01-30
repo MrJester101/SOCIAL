@@ -8,6 +8,7 @@ import AppNavigator from './src/navigations/Navigator';
 import AppLoading from 'expo-app-loading';
 import Tabs from './src/navigations/Tab';
 import { NavigationContainer } from '@react-navigation/native';
+import { LoginButton, AccessToken } from 'react-native-fbsdk';
 
 
 const App2=()=> {
@@ -39,6 +40,7 @@ export default class App extends React.Component{
   }
   render(){
     return (
+      
       <NavigationContainer>
       <Tabs/>
     </NavigationContainer>,

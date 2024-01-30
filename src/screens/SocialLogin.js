@@ -5,6 +5,9 @@ import Icon from '@expo/vector-icons/Entypo';
 import Posts from '../screens/Posts';
  import { LinearGradient } from 'expo-linear-gradient';
 import { signUp } from '../../services/user-service';
+import { LoginButton, AccessToken, GraphRequest } from 'react-native-fbsdk';
+// import { GraphRequest, GraphRequestManager } from 'react-native-fbsdk';
+
 
 
 
@@ -155,7 +158,7 @@ export default class SocialLogin extends React.Component{
                 paddingBottom:7
             }}>Ready to unravel the mysteries of duality? Let's embark on this exhilarating journey together. Tap 'Get Started' and immerse yourself in the extraordinary world of Dichotomy</Text>
 
-             <TouchableOpacity 
+              {/* <TouchableOpacity 
              style={{
               borderWidth:1,
               borderColor:"#00000",
@@ -176,7 +179,62 @@ export default class SocialLogin extends React.Component{
                 Continue with Google
               </Text>
             
-            </TouchableOpacity>
+            </TouchableOpacity>  */}
+
+<LoginButton
+    onLoginFinished={
+      (error, result) => {
+        if (error) {
+          alert("login has error: " + result.error);
+        } else if (result.isCancelled) {
+          alert("login is cancelled.");
+        } else {
+
+          AccessToken.getCurrentAccessToken().then(
+            (data) => {
+              let accessToken = data.accessToken
+              alert(accessToken.toString())
+
+              const responseInfoCallback = (error, result) => {
+                if (error) {
+                  console.log(error)
+                  alert('Error fetching data: ' + error.toString());
+                } else {
+                  console.log(result)
+                  alert('Success fetching data: ' + result.toString());
+                }
+              }
+
+              const infoRequest = new GraphRequest(
+                '/me',
+                {
+                  accessToken: accessToken,
+                  parameters: {
+                    fields: {
+                      string: 'email,name,first_name,middle_name,last_name'
+                    }
+                  }
+                },
+                responseInfoCallback
+              );
+
+              // Start the graph request.
+              new GraphRequestManager().addRequest(infoRequest).start()
+
+            }
+          )
+
+        }
+      }
+    }
+    onLogoutFinished={() => alert("logout.")}/>
+
+
+
+
+            
+
+
           </View>
 
           
